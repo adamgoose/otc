@@ -4,12 +4,29 @@
 
     <br><br><br><br><br><br><br><br><br><br>
 
+
+
     <div class="row">
         <div class="col-xs-4 col-xs-offset-4" id="registrationForm">
+
+            @if($errors->count())
+                <div class="alert alert-danger">
+                    <strong>Oops, looks like you missed something!</strong>
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             <div class="panel panel-default">
                 <div class="panel-heading">Register!</div>
                 <div class="panel-body">
+
+                    <form action="/students" method="post">
+
+                        {!! csrf_field() !!}
                     
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -27,6 +44,8 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block">Register!</button>
+
+                    </form>
                     
                 </div>
             </div>
