@@ -4,8 +4,6 @@
 
     <br><br><br><br><br><br><br><br><br><br>
 
-
-
     <div class="row">
         <div class="col-xs-4 col-xs-offset-4" id="registrationForm">
 
