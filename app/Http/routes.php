@@ -1,11 +1,16 @@
 <?php
 
+Route::auth();
+
 Route::get('/', function () {
     return view('register');
 });
 
-Route::auth();
-
 Route::post('students', 'StudentsController@store');
 
-Route::get('/home', 'HomeController@index');
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('students', 'StudentsController@index');
+
+    Route::resource('resources', 'ResourcesController');
+});

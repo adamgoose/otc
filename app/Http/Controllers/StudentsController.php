@@ -10,6 +10,21 @@ use App\Http\Requests;
 class StudentsController extends Controller
 {
 
+    /**
+     * @return mixed
+     */
+    public function index()
+    {
+        $students = Student::all();
+
+        return view('students.index', compact('students'));
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return mixed
+     */
     public function store(Request $request)
     {
         $this->validate($request, [
